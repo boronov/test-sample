@@ -5,4 +5,10 @@
     <string name="toolbar_title_hotel">Отель</string>
     <string name="toolbar_title_booking">Бронирование</string>
     <string name="toolbar_title_success_paid">Заказ оплачен</string>
+    <string name="todo">todo</string>
+
+    <string name="core_super">Супер!</string>
+    <string name="core_confirm_order_title">Ваш заказ принят в работу</string>
+    <string name="core_confirm_order_subtitle">Подтверждение заказа №%d может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
+
 </resources>

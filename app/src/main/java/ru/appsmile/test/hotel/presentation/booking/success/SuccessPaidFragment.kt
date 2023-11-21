@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import ru.appsmile.test.hotel.R
 import ru.appsmile.test.hotel.databinding.FragmentSuccessPaidBinding
 
 class SuccessPaidFragment : Fragment() {
@@ -14,7 +15,7 @@ class SuccessPaidFragment : Fragment() {
     private var _binding: FragmentSuccessPaidBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SuccessPaidViewModel by viewModels()
+    private val args: SuccessPaidFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,8 +27,12 @@ class SuccessPaidFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val action = SuccessPaidFragmentDirections.actionNavSuccessPaidToNavHotel()
-        findNavController().navigate(action)
+        binding.textViewSubtitle.text = getString(R.string.core_confirm_order_subtitle, args.orderId)
+
+        binding.buttonFinish.setOnClickListener {
+            val action = SuccessPaidFragmentDirections.actionNavSuccessPaidToNavHotel()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

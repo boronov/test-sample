@@ -10,4 +10,6 @@
     <color name="text_primary">#000000</color>
     <color name="text_secondary">#828796</color>
 
+    <color name="stroke">#E8E9EC</color>
+
 </resources>

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.appsmile.test.hotel.databinding.FragmentBookingBinding
+import kotlin.random.Random
 
 class BookingFragment : Fragment() {
 
@@ -27,7 +28,7 @@ class BookingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonNext.setOnClickListener {
-            val action = BookingFragmentDirections.actionNavBookingToNavSuccessPaid()
+            val action = BookingFragmentDirections.actionNavBookingToNavSuccessPaid(Random.nextInt(0, 10_000))
             findNavController().navigate(action)
         }
     }
