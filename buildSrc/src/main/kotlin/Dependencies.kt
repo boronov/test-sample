@@ -71,6 +71,10 @@ object Libraries {
         const val okHttp = "com.squareup.okhttp3:okhttp"
         const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor"
     }
+
+    object Javax {
+        const val inject = "javax.inject:javax.inject:1"
+    }
 }
 
 object Plugins {

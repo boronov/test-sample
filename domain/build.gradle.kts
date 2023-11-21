@@ -9,4 +9,5 @@ java {
 
 dependencies {
     implementation(Libraries.Coroutines.core)
+    implementation(Libraries.Javax.inject)
 }
