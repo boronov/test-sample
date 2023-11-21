@@ -14,13 +14,13 @@
         android:layout_gravity="top"
         android:background="@color/background_card"
         android:elevation="0dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_navigation_back"
         app:title="@string/app_name"
-        app:titleCentered="true" />
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/Theme.Core.TitleTextAppearance" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_container"
