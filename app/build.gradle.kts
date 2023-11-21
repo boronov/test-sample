@@ -1,48 +1,82 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.AGP.application)
+    kotlin(Plugins.Kotlin.android)
+    kotlin(Plugins.Kotlin.kapt)
+
+    // Navigation Safe Args
+    id(Plugins.Navigation.safeArgs)
 }
 
 android {
+    compileSdk = AndroidConfig.compileSdk
     namespace = "ru.appsmile.test.hotel"
-    compileSdk = 34
 
     defaultConfig {
         applicationId = "ru.appsmile.test.hotel"
-        minSdk = 21
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        resourceConfigurations += listOf("en", "ru", "tg", "uz")
+
+        minSdk = AndroidConfig.minSdk
+        targetSdk = AndroidConfig.targetSdk
+
+        versionCode = AndroidConfig.App.majorVersion * 10000 + AndroidConfig.App.minorVersion * 100 + AndroidConfig.App.patchVersion
+        versionName = "${AndroidConfig.App.majorVersion}.${AndroidConfig.App.minorVersion}.${AndroidConfig.App.patchVersion}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
+        getByName(AndroidConfig.release) {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
+
+        getByName(AndroidConfig.debug) {
+            isDebuggable = true
+        }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Options.compileOptions
+        targetCompatibility = Options.compileOptions
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Options.kotlinOptions
     }
+
+    // View Binding
+    viewBinding.isEnabled = true
 }
 
 dependencies {
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    // Core
+    implementation(Libraries.Core.core)
+    implementation(Libraries.Core.appcompat)
+    implementation(Libraries.Core.jodaTime)
+    implementation(Libraries.Core.keyboardvisibilityevent)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // UI
+    implementation(Libraries.UIComponents.material)
+    implementation(Libraries.UIComponents.constraintLayout)
+    implementation(Libraries.UIComponents.swiperefreshlayout)
+    implementation(Libraries.UIComponents.shimmer)
+    implementation(Libraries.UIComponents.glide)
+
+    implementation(Libraries.Activity.activity)
+    implementation(Libraries.Fragment.fragment)
+
+    implementation(Libraries.Coroutines.android)
+
+    // Lifecycle
+    implementation(Libraries.Lifecycle.viewModel)
+    implementation(Libraries.Lifecycle.runtime)
+
+    // Navigation
+    implementation(Libraries.Navigation.fragment)
+    implementation(Libraries.Navigation.ui)
 }
