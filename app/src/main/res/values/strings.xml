@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HotelApp</string>
+
+    <!-- Top level Title -->
+    <string name="toolbar_title_hotel">Отель</string>
+    <string name="toolbar_title_booking">Бронирование</string>
+    <string name="toolbar_title_success_paid">Заказ оплачен</string>
 </resources>

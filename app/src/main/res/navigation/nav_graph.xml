@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_hotel">
+
+    <fragment
+        android:id="@+id/nav_hotel"
+        android:name="ru.appsmile.test.hotel.presentation.hotel.HotelFragment"
+        android:label="@string/toolbar_title_hotel"
+        tools:layout="@layout/fragment_hotel">
+        <action
+            android:id="@+id/action_nav_hotel_to_nav_room"
+            app:destination="@id/nav_room" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_room"
+        android:name="ru.appsmile.test.hotel.presentation.room.RoomFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_room">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_room_to_nav_booking"
+            app:destination="@id/nav_booking" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_booking"
+        android:name="ru.appsmile.test.hotel.presentation.booking.BookingFragment"
+        android:label="@string/toolbar_title_booking"
+        tools:layout="@layout/fragment_booking">
+        <action
+            android:id="@+id/action_nav_booking_to_nav_success_paid"
+            app:destination="@id/nav_success_paid" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_success_paid"
+        android:name="ru.appsmile.test.hotel.presentation.booking.success.SuccessPaidFragment"
+        android:label="@string/toolbar_title_success_paid"
+        tools:layout="@layout/fragment_success_paid">
+        <action
+            android:id="@+id/action_nav_success_paid_to_nav_hotel"
+            app:destination="@id/nav_hotel"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
