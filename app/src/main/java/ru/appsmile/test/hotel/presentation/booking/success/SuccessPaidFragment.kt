@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import ru.appsmile.test.hotel.R
 import ru.appsmile.test.hotel.databinding.FragmentSuccessPaidBinding
 
+@AndroidEntryPoint
 class SuccessPaidFragment : Fragment() {
 
     private var _binding: FragmentSuccessPaidBinding? = null

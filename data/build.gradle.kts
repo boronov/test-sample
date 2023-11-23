@@ -12,6 +12,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/v3/\"")
     }
 
     buildTypes {
@@ -46,4 +48,7 @@ dependencies {
     implementation(Libraries.OkHttp.bom)
     implementation(Libraries.OkHttp.okHttp)
     implementation(Libraries.OkHttp.loggingInterceptor)
+
+    implementation(Libraries.Javax.inject)
+    implementation(Libraries.Coroutines.android)
 }

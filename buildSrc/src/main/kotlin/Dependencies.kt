@@ -18,6 +18,7 @@ object Versions {
     const val keyboardvisibilityevent = "3.0.0-RC3"
     const val shimmer = "0.5.0"
     const val jodaTime = "2.11.2"
+    const val dagger = "2.47"
 
 }
 
@@ -75,6 +76,11 @@ object Libraries {
     object Javax {
         const val inject = "javax.inject:javax.inject:1"
     }
+
+    object Hilt {
+        const val android = "com.google.dagger:hilt-android:${Versions.dagger}"
+        const val compiler = "com.google.dagger:hilt-compiler:${Versions.dagger}"
+    }
 }
 
 object Plugins {
@@ -96,5 +102,9 @@ object Plugins {
 
     object Navigation {
         const val safeArgs = "androidx.navigation.safeargs.kotlin"
+    }
+
+    object Hilt {
+        const val plugin = "com.google.dagger.hilt.android"
     }
 }

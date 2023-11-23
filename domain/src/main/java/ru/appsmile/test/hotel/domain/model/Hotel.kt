@@ -2,6 +2,7 @@ package ru.appsmile.test.hotel.domain.model
 
 data class Hotel(
     val id: Int,
+    val name: String,
     val address: String,
     val minimalPrice: Double,
     val priceForIt: String,

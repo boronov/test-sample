@@ -6,4 +6,7 @@ plugins {
 
     // Navigation Safe Args
     id(Plugins.Navigation.safeArgs) version Versions.navigation apply false
+
+    // Hilt
+    id(Plugins.Hilt.plugin) version Versions.dagger apply false
 }

@@ -1,7 +1,5 @@
 package ru.appsmile.test.hotel.domain.model
 
-import java.util.Date
-
 data class BookingInfo(
     val id: Int,
     val hotelName: String,
@@ -10,8 +8,8 @@ data class BookingInfo(
     val ratingName: String,
     val departure: String,
     val arrivalCountry: String,
-    val tourDateStart: Date,
-    val tourDateStop: Date,
+    val tourDateStart: String,
+    val tourDateStop: String,
     val numberOfNights: Int,
     val room: String,
     val nutrition: String,
