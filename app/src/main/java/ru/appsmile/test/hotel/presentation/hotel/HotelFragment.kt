@@ -18,15 +18,14 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.flexbox.FlexboxItemDecoration
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
-import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import ru.appsmile.test.hotel.R
 import ru.appsmile.test.hotel.databinding.FragmentHotelBinding
-import ru.appsmile.test.hotel.databinding.ListItemPeculiaritiesBinding
 import ru.appsmile.test.hotel.domain.Resource
 import ru.appsmile.test.hotel.domain.model.Hotel
+import ru.appsmile.test.hotel.presentation.common.PeculiaritiesAdapter
+import ru.appsmile.test.hotel.presentation.common.toCurrencyFormat
 
 @AndroidEntryPoint
 class HotelFragment : Fragment() {
@@ -36,21 +35,7 @@ class HotelFragment : Fragment() {
 
     private val viewModel: HotelViewModel by viewModels()
 
-    private val peculiaritiesAdapterDelegate: ListDelegationAdapter<List<String>> by lazy {
-        ListDelegationAdapter(adapterDelegateViewBinding(
-            { layoutInflater, root ->
-                ListItemPeculiaritiesBinding.inflate(
-                    layoutInflater,
-                    root,
-                    false
-                )
-            }
-        ) {
-            bind {
-                binding.root.text = item
-            }
-        })
-    }
+    private val peculiaritiesAdapter: PeculiaritiesAdapter by lazy { PeculiaritiesAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -116,11 +101,12 @@ class HotelFragment : Fragment() {
         binding.textViewHotelName.text = hotel.name
         binding.buttonAddress.text = hotel.address
 
-        binding.textViewMinimalPrice.text = getString(R.string.core_format_minimal_price, hotel.minimalPrice.toLong().toString())
+        binding.textViewMinimalPrice.text =
+            getString(R.string.core_format_minimal_price, hotel.minimalPrice.toCurrencyFormat())
         binding.textViewPriceForIt.text = hotel.priceForIt
 
-        peculiaritiesAdapterDelegate.items = hotel.aboutTheHotel.peculiarities
-        binding.recyclerViewPeculiarities.adapter = peculiaritiesAdapterDelegate
+        peculiaritiesAdapter.items = hotel.aboutTheHotel.peculiarities
+        binding.recyclerViewPeculiarities.adapter = peculiaritiesAdapter
 
         binding.textViewDescription.text = hotel.aboutTheHotel.description
 

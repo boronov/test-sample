@@ -5,6 +5,7 @@
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/primary</item>
 
         <!-- Secondary brand color. -->
         <item name="colorOnSecondary">@color/black</item>
@@ -26,8 +27,8 @@
     </style>
 
     <style name="Theme.Core.TitleTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle1">
-        <item name="fontFamily">@font/medium</item>
-        <item name="android:fontFamily">@font/medium</item>
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
         <item name="android:textSize">18sp</item>
     </style>
 

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rectangle_radius_12"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/image_view_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="257dp"
+        app:iss_auto_cycle="false"
+        app:iss_corner_radius="30"
+        app:iss_indicator_align="CENTER"
+        app:iss_text_align="CENTER" />
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/medium"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
+        tools:text="Steigenberger Makadi" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_peculiarities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:nestedScrollingEnabled="false"
+        tools:itemCount="5"
+        tools:listitem="@layout/list_item_peculiarities" />
+
+    <TextView
+        android:id="@+id/button_room_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_rectangle_radius_5"
+        android:backgroundTint="#1A0D72FF"
+        android:fontFamily="@font/medium"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:text="@string/core_room_details"
+        android:textColor="@color/primary"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        app:drawableTint="@color/primary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/text_view_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/text_primary"
+            android:textSize="30sp"
+            tools:text="@string/core_format_price" />
+
+        <TextView
+            android:id="@+id/text_view_price_for_it"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            tools:text="за тур с перелётом" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_next"
+        style="@style/Theme.Core.Button.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0"
+        android:includeFontPadding="false"
+        android:text="@string/core_button_choose_this_room" />
+
+</LinearLayout>

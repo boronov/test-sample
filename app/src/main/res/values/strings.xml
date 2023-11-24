@@ -11,7 +11,10 @@
     <string name="core_confirm_order_title">Ваш заказ принят в работу</string>
     <string name="core_confirm_order_subtitle">Подтверждение заказа №%d может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
     <string name="core_format_minimal_price">от %s ₽</string>
+    <string name="core_format_price">%s ₽</string>
     <string name="core_about_hotel">Об отеле</string>
     <string name="core_button_choose_room">К выбору номера</string>
+    <string name="core_button_choose_this_room">Выбрать номер</string>
+    <string name="core_room_details">Подробнее о номере</string>
 
 </resources>

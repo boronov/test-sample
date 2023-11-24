@@ -4,23 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@color/background_main"
+    android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/regular"
-        android:text="Room" />
+        android:visibility="visible" />
 
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_next"
-        style="@style/Theme.Core.Button.Primary"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_rooms"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:text="Next" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:visibility="gone"
+        android:paddingBottom="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="3"
+        tools:listitem="@layout/list_item_room" />
 </LinearLayout>

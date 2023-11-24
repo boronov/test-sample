@@ -57,9 +57,12 @@
                     android:background="@drawable/bg_rectangle_radius_5"
                     android:backgroundTint="#33FFC700"
                     android:drawablePadding="2dp"
+                    android:fontFamily="@font/medium"
+                    android:includeFontPadding="false"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="5dp"
                     android:textColor="#FFA800"
+                    android:textSize="16sp"
                     app:drawableStartCompat="@drawable/ic_rating_star"
                     tools:text="5 Превосходно" />
 
@@ -79,8 +82,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:letterSpacing="0"
                     android:fontFamily="@font/medium"
                     android:gravity="start"
+                    android:includeFontPadding="false"
                     android:insetLeft="0dp"
                     android:insetTop="0dp"
                     android:insetRight="0dp"
@@ -346,6 +351,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:letterSpacing="0"
+            android:includeFontPadding="false"
             android:text="@string/core_button_choose_room" />
     </LinearLayout>
 
