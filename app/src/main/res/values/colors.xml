@@ -6,10 +6,10 @@
 
     <color name="background_main">#F6F6F9</color>
     <color name="background_card">#FFFFFF</color>
+    <color name="background_chip">#FFFBFBFC</color>
 
     <color name="text_primary">#000000</color>
     <color name="text_secondary">#828796</color>
 
     <color name="stroke">#E8E9EC</color>
-
 </resources>

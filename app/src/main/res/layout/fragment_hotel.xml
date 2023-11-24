@@ -1,26 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="@color/background_main"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/regular"
-        android:text="@string/toolbar_title_hotel" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_main"
+            android:orientation="vertical"
+            android:paddingBottom="80dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_bottom_radius_12"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_view_slider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="257dp"
+                    app:iss_auto_cycle="false"
+                    app:iss_corner_radius="30"
+                    app:iss_indicator_align="CENTER"
+                    app:iss_text_align="CENTER" />
+
+                <TextView
+                    android:id="@+id/text_view_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_rectangle_radius_5"
+                    android:backgroundTint="#33FFC700"
+                    android:drawablePadding="2dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:textColor="#FFA800"
+                    app:drawableStartCompat="@drawable/ic_rating_star"
+                    tools:text="5 Превосходно" />
+
+                <TextView
+                    android:id="@+id/text_view_hotel_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/medium"
+                    android:textColor="@color/text_primary"
+                    android:textSize="22sp"
+                    tools:text="Steigenberger Makadi" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_address"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/medium"
+                    android:gravity="start"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/text_view_minimal_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="30sp"
+                        tools:text="@string/core_format_minimal_price" />
+
+                    <TextView
+                        android:id="@+id/text_view_price_for_it"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/regular"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="16sp"
+                        tools:text="за тур с перелётом" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/bg_rectangle_radius_12"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/medium"
+                    android:text="@string/core_about_hotel"
+                    android:textColor="@color/text_primary"
+                    android:textSize="22sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_peculiarities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/list_item_peculiarities" />
+
+                <TextView
+                    android:id="@+id/text_view_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/regular"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_rectangle_radius_15"
+                    android:backgroundTint="@color/background_chip"
+                    android:orientation="vertical"
+                    android:paddingVertical="5dp">
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_next"
-        style="@style/Theme.Core.Button.Primary"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:id="@+id/image_view_1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_emoji_happy" />
+
+                        <TextView
+                            android:id="@+id/text_view_title_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@id/image_view_1"
+                            android:fontFamily="@font/medium"
+                            android:text="Удобства"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/text_view_subtitle_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/text_view_title_1"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@id/image_view_1"
+                            android:text="Самое необходимое"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+
+
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic_arrow_right" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_marginStart="51dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@color/stroke" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:id="@+id/image_view_2"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_tick_square" />
+
+                        <TextView
+                            android:id="@+id/text_view_title_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@id/image_view_2"
+                            android:fontFamily="@font/medium"
+                            android:text="Что включено"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/text_view_subtitle_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/text_view_title_2"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@id/image_view_2"
+                            android:text="Самое необходимое"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+
+
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic_arrow_right" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_marginStart="51dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@color/stroke" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:id="@+id/image_view_3"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_close_square" />
+
+                        <TextView
+                            android:id="@+id/text_view_title_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@id/image_view_3"
+                            android:fontFamily="@font/medium"
+                            android:text="Что не включено"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/text_view_subtitle_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/text_view_title_3"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@id/image_view_3"
+                            android:text="Самое необходимое"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+
+
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic_arrow_right" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:text="Next" />
-</LinearLayout>
+        android:background="@color/background_card"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/stroke" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_next"
+            style="@style/Theme.Core.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/core_button_choose_room" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

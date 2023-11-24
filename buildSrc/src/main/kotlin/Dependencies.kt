@@ -19,6 +19,8 @@ object Versions {
     const val shimmer = "0.5.0"
     const val jodaTime = "2.11.2"
     const val dagger = "2.47"
+    const val slider = "0.1.2"
+    const val adapterDelegates = "4.3.2"
 
 }
 
@@ -35,6 +37,9 @@ object Libraries {
         const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
         const val swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swiperefreshlayout}"
         const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
+        const val slider = "com.github.denzcoskun:ImageSlideshow:${Versions.slider}"
+        const val adapterDelegates = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:${Versions.adapterDelegates}"
+        const val flexBox = "com.google.android.flexbox:flexbox:3.0.0"
     }
 
     object Core {

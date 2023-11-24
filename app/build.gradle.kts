@@ -69,6 +69,9 @@ dependencies {
     implementation(Libraries.UIComponents.swiperefreshlayout)
     implementation(Libraries.UIComponents.shimmer)
     implementation(Libraries.UIComponents.glide)
+    implementation(Libraries.UIComponents.slider)
+    implementation(Libraries.UIComponents.adapterDelegates)
+    implementation(Libraries.UIComponents.flexBox)
 
     implementation(Libraries.Activity.activity)
     implementation(Libraries.Fragment.fragment)
