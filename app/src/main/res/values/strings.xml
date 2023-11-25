@@ -16,5 +16,19 @@
     <string name="core_button_choose_room">К выбору номера</string>
     <string name="core_button_choose_this_room">Выбрать номер</string>
     <string name="core_room_details">Подробнее о номере</string>
+    <string name="core_buyer_information">Информация о покупателе</string>
+    <string name="core_buyer_information_disclaimer">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
+    <string name="core_input_phone_number">Номер телефона</string>
+    <string name="core_input_email">Почта</string>
+    <string name="core_input_name">Имя</string>
+    <string name="core_input_surname">Фамилия</string>
+    <string name="core_input_birthday">Дата рождения</string>
+    <string name="core_input_citizenship">Гражданство</string>
+    <string name="core_input_passport_number">Номер загранпаспорта</string>
+    <string name="core_input_passport_validate_date">Срок действия загранпаспорта</string>
+    <string name="core_fill_all_filed">Заполните все поля</string>
+    <string name="core_format_tourist_number">%s-й турист</string>
+    <string name="core_add_tourist">Добавить туриста</string>
+    <string name="core_format_pay_price">Оплатить %s ₽</string>
 
 </resources>

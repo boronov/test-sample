@@ -72,6 +72,7 @@ dependencies {
     implementation(Libraries.UIComponents.slider)
     implementation(Libraries.UIComponents.adapterDelegates)
     implementation(Libraries.UIComponents.flexBox)
+    implementation(Libraries.UIComponents.maskara)
 
     implementation(Libraries.Activity.activity)
     implementation(Libraries.Fragment.fragment)

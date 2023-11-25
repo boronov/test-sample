@@ -101,8 +101,7 @@ class HotelFragment : Fragment() {
         binding.textViewHotelName.text = hotel.name
         binding.buttonAddress.text = hotel.address
 
-        binding.textViewMinimalPrice.text =
-            getString(R.string.core_format_minimal_price, hotel.minimalPrice.toCurrencyFormat())
+        binding.textViewMinimalPrice.text = getString(R.string.core_format_minimal_price, hotel.minimalPrice.toCurrencyFormat())
         binding.textViewPriceForIt.text = hotel.priceForIt
 
         peculiaritiesAdapter.items = hotel.aboutTheHotel.peculiarities

@@ -10,6 +10,10 @@
 
     <color name="text_primary">#000000</color>
     <color name="text_secondary">#828796</color>
+    <color name="text_hint">#A9ABB7</color>
 
     <color name="stroke">#E8E9EC</color>
+
+    <color name="box_input_default">#F6F6F9</color>
+    <color name="box_input_error">#26EB5757</color>
 </resources>

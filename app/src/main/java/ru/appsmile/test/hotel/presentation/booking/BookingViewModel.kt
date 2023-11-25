@@ -19,6 +19,9 @@ class BookingViewModel @Inject constructor(
     private val _bookingInfo = MutableStateFlow<Resource<BookingInfo>>(Resource.Loading())
     val bookingInfo = _bookingInfo.asStateFlow()
 
+    var userPhone: String? = null
+    var userEmail: String? = null
+
     init {
         viewModelScope.launch {
             getBookingInfoUseCase().collect {

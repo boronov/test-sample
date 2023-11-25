@@ -40,6 +40,7 @@ object Libraries {
         const val slider = "com.github.denzcoskun:ImageSlideshow:${Versions.slider}"
         const val adapterDelegates = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:${Versions.adapterDelegates}"
         const val flexBox = "com.google.android.flexbox:flexbox:3.0.0"
+        const val maskara = "com.github.santalu:maskara:1.0.0"
     }
 
     object Core {
