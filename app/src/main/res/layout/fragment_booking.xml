@@ -107,7 +107,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Вылет из"
+                        android:text="@string/core_departure"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -134,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Страна, город"
+                        android:text="@string/core_arrival_country"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Даты"
+                        android:text="@string/core_tour_date"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -188,7 +188,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Кол-во ночей"
+                        android:text="@string/core_number_of_nights"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -215,7 +215,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Отель"
+                        android:text="@string/core_hotel"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -242,7 +242,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Номер"
+                        android:text="@string/core_room"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -269,7 +269,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Питание"
+                        android:text="@string/core_nutrition"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -411,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Тур"
+                        android:text="@string/core_tour_price"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -439,7 +439,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Топливный сбор"
+                        android:text="@string/core_fuel_charge"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -467,7 +467,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="Сервисный сбор"
+                        android:text="@string/core_service_charge"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -495,7 +495,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/regular"
-                        android:text="К оплате"
+                        android:text="@string/core_total_price"
                         android:textColor="@color/text_secondary"
                         android:textSize="16sp" />
 
@@ -540,7 +540,7 @@
             android:layout_margin="16dp"
             android:includeFontPadding="false"
             android:letterSpacing="0"
-            android:text="Оплатить 198 036 ₽" />
+            tools:text="Оплатить 198 036 ₽" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

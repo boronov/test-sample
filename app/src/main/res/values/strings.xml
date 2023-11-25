@@ -1,23 +1,26 @@
 <resources>
     <string name="app_name">HotelApp</string>
 
-    <!-- Top level Title -->
+    <!-- Top-Level Titles -->
     <string name="toolbar_title_hotel">Отель</string>
     <string name="toolbar_title_booking">Бронирование</string>
     <string name="toolbar_title_success_paid">Заказ оплачен</string>
     <string name="todo">todo</string>
 
+    <!-- Core Messages -->
     <string name="core_super">Супер!</string>
     <string name="core_confirm_order_title">Ваш заказ принят в работу</string>
     <string name="core_confirm_order_subtitle">Подтверждение заказа №%d может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
     <string name="core_format_minimal_price">от %s ₽</string>
     <string name="core_format_price">%s ₽</string>
     <string name="core_about_hotel">Об отеле</string>
+
+    <!-- User Information -->
     <string name="core_button_choose_room">К выбору номера</string>
     <string name="core_button_choose_this_room">Выбрать номер</string>
     <string name="core_room_details">Подробнее о номере</string>
     <string name="core_buyer_information">Информация о покупателе</string>
-    <string name="core_buyer_information_disclaimer">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
+    <string name="core_buyer_information_disclaimer">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
     <string name="core_input_phone_number">Номер телефона</string>
     <string name="core_input_email">Почта</string>
     <string name="core_input_name">Имя</string>
@@ -26,9 +29,28 @@
     <string name="core_input_citizenship">Гражданство</string>
     <string name="core_input_passport_number">Номер загранпаспорта</string>
     <string name="core_input_passport_validate_date">Срок действия загранпаспорта</string>
-    <string name="core_fill_all_filed">Заполните все поля</string>
+    <string name="core_fill_all_fields">Заполните все поля</string>
     <string name="core_format_tourist_number">%s-й турист</string>
     <string name="core_add_tourist">Добавить туриста</string>
+
+    <!-- Payment and Pricing -->
     <string name="core_format_pay_price">Оплатить %s ₽</string>
+    <string name="core_total_price">К оплате</string>
+    <string name="core_service_charge">Сервисный сбор</string>
+    <string name="core_fuel_charge">Топливный сбор</string>
+
+    <!-- Tour Details -->
+    <string name="core_tour_price">Тур</string>
+    <string name="core_nutrition">Питание</string>
+    <string name="core_room">Номер</string>
+    <string name="core_hotel">Отель</string>
+    <string name="core_number_of_nights">Кол-во ночей</string>
+    <string name="core_tour_date">Даты</string>
+    <string name="core_arrival_country">Страна, город</string>
+    <string name="core_departure">Вылет из</string>
+    <string name="core_facilities">Удобства</string>
+    <string name="core_included">Что включено</string>
+    <string name="core_not_included">Что не включено</string>
+    <string name="core_essentials">Самое необходимое</string>
 
 </resources>

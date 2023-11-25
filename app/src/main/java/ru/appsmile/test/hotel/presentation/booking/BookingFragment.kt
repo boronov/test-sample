@@ -171,7 +171,7 @@ class BookingFragment : Fragment() {
         if (isUserInputValid() && isTouristInfoValid()) {
             navigateToSuccessPaidFragment()
         } else {
-            Snackbar.make(binding.root, getString(R.string.core_fill_all_filed), Snackbar.LENGTH_LONG).show()
+            Snackbar.make(binding.root, getString(R.string.core_fill_all_fields), Snackbar.LENGTH_LONG).show()
         }
     }
 

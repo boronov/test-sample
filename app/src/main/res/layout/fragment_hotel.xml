@@ -82,7 +82,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:letterSpacing="0"
                     android:fontFamily="@font/medium"
                     android:gravity="start"
                     android:includeFontPadding="false"
@@ -90,6 +89,7 @@
                     android:insetTop="0dp"
                     android:insetRight="0dp"
                     android:insetBottom="0dp"
+                    android:letterSpacing="0"
                     android:minHeight="0dp"
                     android:padding="0dp"
                     android:textAllCaps="false"
@@ -183,6 +183,7 @@
                             android:layout_height="24dp"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
+                            android:contentDescription="@string/todo"
                             android:src="@drawable/ic_emoji_happy" />
 
                         <TextView
@@ -192,7 +193,7 @@
                             android:layout_marginStart="12dp"
                             android:layout_toEndOf="@id/image_view_1"
                             android:fontFamily="@font/medium"
-                            android:text="Удобства"
+                            android:text="@string/core_facilities"
                             android:textColor="@color/text_primary"
                             android:textSize="16sp" />
 
@@ -203,7 +204,7 @@
                             android:layout_below="@id/text_view_title_1"
                             android:layout_marginStart="12dp"
                             android:layout_toEndOf="@id/image_view_1"
-                            android:text="Самое необходимое"
+                            android:text="@string/core_essentials"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
 
@@ -237,6 +238,7 @@
                             android:layout_height="24dp"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
+                            android:contentDescription="@string/todo"
                             android:src="@drawable/ic_tick_square" />
 
                         <TextView
@@ -246,7 +248,7 @@
                             android:layout_marginStart="12dp"
                             android:layout_toEndOf="@id/image_view_2"
                             android:fontFamily="@font/medium"
-                            android:text="Что включено"
+                            android:text="@string/core_included"
                             android:textColor="@color/text_primary"
                             android:textSize="16sp" />
 
@@ -257,7 +259,7 @@
                             android:layout_below="@id/text_view_title_2"
                             android:layout_marginStart="12dp"
                             android:layout_toEndOf="@id/image_view_2"
-                            android:text="Самое необходимое"
+                            android:text="@string/core_essentials"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
 
@@ -291,6 +293,7 @@
                             android:layout_height="24dp"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
+                            android:contentDescription="@string/todo"
                             android:src="@drawable/ic_close_square" />
 
                         <TextView
@@ -300,7 +303,7 @@
                             android:layout_marginStart="12dp"
                             android:layout_toEndOf="@id/image_view_3"
                             android:fontFamily="@font/medium"
-                            android:text="Что не включено"
+                            android:text="@string/core_not_included"
                             android:textColor="@color/text_primary"
                             android:textSize="16sp" />
 
@@ -311,7 +314,7 @@
                             android:layout_below="@id/text_view_title_3"
                             android:layout_marginStart="12dp"
                             android:layout_toEndOf="@id/image_view_3"
-                            android:text="Самое необходимое"
+                            android:text="@string/core_essentials"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
 
@@ -351,8 +354,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:letterSpacing="0"
             android:includeFontPadding="false"
+            android:letterSpacing="0"
             android:text="@string/core_button_choose_room" />
     </LinearLayout>
 
