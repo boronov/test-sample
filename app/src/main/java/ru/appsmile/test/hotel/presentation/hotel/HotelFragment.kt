@@ -48,13 +48,6 @@ class HotelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-
-        binding.recyclerViewPeculiarities.apply {
-            layoutManager = FlexboxLayoutManager(requireContext())
-            addItemDecoration(FlexboxItemDecoration(requireContext()).apply {
-                this.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider))
-            })
-        }
     }
 
     private fun setupObserver() {
@@ -91,6 +84,13 @@ class HotelFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews(hotel: Hotel) {
+        binding.recyclerViewPeculiarities.apply {
+            layoutManager = FlexboxLayoutManager(requireContext())
+            addItemDecoration(FlexboxItemDecoration(requireContext()).apply {
+                this.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.divider))
+            })
+        }
+
         val imageList = hotel.imageUrls.map { SlideModel(it) }
         binding.imageViewSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
 
@@ -99,8 +99,7 @@ class HotelFragment : Fragment() {
         binding.textViewHotelName.text = hotel.name
         binding.buttonAddress.text = hotel.address
 
-        binding.textViewMinimalPrice.text =
-            getString(R.string.core_format_minimal_price, hotel.minimalPrice.toCurrencyFormat())
+        binding.textViewMinimalPrice.text = getString(R.string.core_format_minimal_price, hotel.minimalPrice.toCurrencyFormat())
         binding.textViewPriceForIt.text = hotel.priceForIt
 
         peculiaritiesAdapter.items = hotel.aboutTheHotel.peculiarities

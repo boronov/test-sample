@@ -43,11 +43,16 @@ class RoomFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.recyclerViewRooms.apply {
+            addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL).apply {
+                ContextCompat.getDrawable(requireContext(), R.drawable.divider)?.let { setDrawable(it) }
+            })
+
+            adapter = roomsAdapter
+        }
+
         setupObserver()
-        binding.recyclerViewRooms.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL).apply {
-            ContextCompat.getDrawable(requireContext(), R.drawable.divider)?.let { setDrawable(it) }
-        })
-        binding.recyclerViewRooms.adapter = roomsAdapter
     }
 
     private fun setupObserver() {

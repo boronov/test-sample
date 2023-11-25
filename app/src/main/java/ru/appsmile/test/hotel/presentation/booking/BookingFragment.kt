@@ -74,7 +74,8 @@ class BookingFragment : Fragment() {
                             binding.buttonPay.isVisible = false
                             binding.content.isVisible = false
 
-                            Snackbar.make(binding.root, it.error.orEmpty(), Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(binding.root, it.error.orEmpty(), Snackbar.LENGTH_LONG)
+                                .show()
                         }
                     }
                 }
@@ -82,33 +83,40 @@ class BookingFragment : Fragment() {
         }
     }
 
-
     @SuppressLint("SetTextI18n")
     private fun setupViews(hotelInfo: BookingInfo) {
-        binding.recyclerViewTourist.apply {
-            addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                ).apply {
-                    ContextCompat.getDrawable(requireContext(), R.drawable.divider)
-                        ?.let { setDrawable(it) }
-                })
+        setupRecyclerView()
+
+        binding.textInputPhoneNumber.setupValidator(
+            { (it as? MaskEditText?)?.isDone ?: false },
+            { viewModel.userPhone = it?.text?.toString() }
+        )
+
+        binding.textInputEmail.setupValidator(
+            { it?.text?.toString().orEmpty().contains(Patterns.EMAIL_ADDRESS.toRegex()) },
+            { viewModel.userEmail = it?.text?.toString() }
+        )
+
+        setupHotelInfoViews(hotelInfo)
+
+        touristAdapter.items = listOf(TouristAdapter.TouristInfo(id = 1).apply { isExpanded = true })
+
+        calculateAndDisplayPrice(hotelInfo, touristAdapter.items?.size ?: 0)
+
+        setupButtonClickListeners(hotelInfo)
+    }
+
+    private fun setupRecyclerView() {
+        with(binding.recyclerViewTourist) {
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
+                setDrawable(ContextCompat.getDrawable(context, R.drawable.divider)!!)
+            })
+
             adapter = touristAdapter
         }
+    }
 
-        binding.textInputPhoneNumber.setupValidator({
-            (it as? MaskEditText?)?.isDone ?: false
-        }, {
-            viewModel.userPhone = it?.text?.toString()
-        })
-
-        binding.textInputEmail.setupValidator({
-            it?.text?.toString().orEmpty().contains(Patterns.EMAIL_ADDRESS.toRegex())
-        }, {
-            viewModel.userEmail = it?.text?.toString()
-        })
-
+    private fun setupHotelInfoViews(hotelInfo: BookingInfo) {
         binding.textViewRating.text = "${hotelInfo.hotelRating} ${hotelInfo.ratingName}"
 
         binding.textViewTopHotelName.text = hotelInfo.hotelName
@@ -121,43 +129,29 @@ class BookingFragment : Fragment() {
         binding.textViewHotelName.text = hotelInfo.hotelName
         binding.textViewRoom.text = hotelInfo.room
         binding.textViewNutrition.text = hotelInfo.nutrition
+    }
 
-        touristAdapter.items = listOf(TouristAdapter.TouristInfo(id = 1).apply {
-            isExpanded = true
-        })
-
-        calculatePrice(hotelInfo, touristAdapter.items?.size ?: 0)
-
+    private fun setupButtonClickListeners(hotelInfo: BookingInfo) {
         binding.buttonAddTourist.setOnClickListener {
-            val newTourist = TouristAdapter.TouristInfo(id = (touristAdapter.items?.size ?: 0) + 1)
-            val newTouristList: MutableList<TouristAdapter.TouristInfo> =
-                touristAdapter.items?.map { it.copy() }?.toMutableList() ?: mutableListOf()
-            newTouristList.add(newTourist)
-
-            touristAdapter.items = newTouristList
-            touristAdapter.notifyItemInserted((touristAdapter.items?.size ?: 0) + 1)
-            calculatePrice(hotelInfo, touristAdapter.items?.size ?: 0)
+            addNewTourist()
+            calculateAndDisplayPrice(hotelInfo, touristAdapter.items?.size ?: 0)
         }
 
         binding.buttonPay.setOnClickListener {
-            if (!viewModel.userEmail.isNullOrBlank() && !viewModel.userPhone.isNullOrBlank() && touristAdapter.items?.find { !it.isValidInfo } == null) {
-                val action = BookingFragmentDirections.actionNavBookingToNavSuccessPaid(
-                    Random.nextInt(
-                        0,
-                        10_000
-                    )
-                )
-                findNavController().navigate(action)
-            } else {
-                Snackbar.make(
-                    binding.root,
-                    getString(R.string.core_fill_all_filed), Snackbar.LENGTH_LONG
-                ).show()
-            }
+            handlePaymentButtonClick()
         }
     }
 
-    private fun calculatePrice(hotelInfo: BookingInfo, touristCount: Int) {
+    private fun addNewTourist() {
+        val newTourist = TouristAdapter.TouristInfo(id = (touristAdapter.items?.size ?: 0) + 1)
+        val newTouristList: MutableList<TouristAdapter.TouristInfo> = touristAdapter.items?.map { it.copy() }?.toMutableList() ?: mutableListOf()
+        newTouristList.add(newTourist)
+
+        touristAdapter.items = newTouristList
+        touristAdapter.notifyItemInserted((touristAdapter.items?.size ?: 0) + 1)
+    }
+
+    private fun calculateAndDisplayPrice(hotelInfo: BookingInfo, touristCount: Int) {
         val tourPrice = hotelInfo.tourPrice * touristCount
         binding.textViewTourPrice.text = getString(R.string.core_format_price, tourPrice.toCurrencyFormat())
 
@@ -171,6 +165,29 @@ class BookingFragment : Fragment() {
         binding.textViewTotalPrice.text = getString(R.string.core_format_price, totalPrice.toCurrencyFormat())
 
         binding.buttonPay.text = getString(R.string.core_format_pay_price, totalPrice.toCurrencyFormat())
+    }
+
+    private fun handlePaymentButtonClick() {
+        if (isUserInputValid() && isTouristInfoValid()) {
+            navigateToSuccessPaidFragment()
+        } else {
+            Snackbar.make(binding.root, getString(R.string.core_fill_all_filed), Snackbar.LENGTH_LONG).show()
+        }
+    }
+
+    private fun isUserInputValid(): Boolean {
+        return !viewModel.userEmail.isNullOrBlank() && !viewModel.userPhone.isNullOrBlank()
+    }
+
+    private fun isTouristInfoValid(): Boolean {
+        return touristAdapter.items?.find { !it.isValidInfo } == null
+    }
+
+    private fun navigateToSuccessPaidFragment() {
+        val action = BookingFragmentDirections.actionNavBookingToNavSuccessPaid(
+            Random.nextInt(0, 10_000)
+        )
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

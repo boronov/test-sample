@@ -31,6 +31,7 @@ class RoomsAdapter(onRoomChoose: (room: Room) -> Unit) : ListDelegationAdapter<L
 
             binding.recyclerViewPeculiarities.apply {
                 layoutManager = FlexboxLayoutManager(binding.root.context)
+
                 addItemDecoration(FlexboxItemDecoration(binding.root.context).apply {
                     this.setDrawable(ContextCompat.getDrawable(binding.root.context, R.drawable.divider))
                 })

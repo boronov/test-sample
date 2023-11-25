@@ -1,13 +1,11 @@
 package ru.appsmile.test.hotel.presentation.common
 
-
 import androidx.core.view.isVisible
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.santalu.maskara.widget.MaskEditText
 import ru.appsmile.test.hotel.R
 import ru.appsmile.test.hotel.databinding.ListItemTouristBinding
-
 
 class TouristAdapter : ListDelegationAdapter<List<TouristAdapter.TouristInfo>>(
     adapterDelegateViewBinding(
