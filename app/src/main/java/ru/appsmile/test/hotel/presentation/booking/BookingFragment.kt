@@ -58,26 +58,23 @@ class BookingFragment : Fragment() {
                     when (it) {
                         is Resource.Success -> {
                             binding.progressBar.isVisible = false
-                            binding.content.isVisible = it.data != null
-                            binding.buttonPay.isVisible = it.data != null
-                            it.data?.let { info -> setupViews(info) }
+                            binding.content.isVisible = true
+                            binding.buttonPay.isVisible = true
+                            setupViews(it.data)
                         }
 
                         is Resource.Loading -> {
                             binding.content.isVisible = false
                             binding.progressBar.isVisible = true
-                            binding.buttonPay.isVisible = it.data != null
-                            it.data?.let { info -> setupViews(info) }
+                            binding.buttonPay.isVisible = false
                         }
 
                         is Resource.Error -> {
                             binding.progressBar.isVisible = false
-                            binding.buttonPay.isVisible = it.data != null
-                            binding.content.isVisible = it.data != null
-                            it.data?.let { info -> setupViews(info) }
+                            binding.buttonPay.isVisible = false
+                            binding.content.isVisible = false
 
-                            Snackbar.make(binding.root, it.error.orEmpty(), Snackbar.LENGTH_LONG)
-                                .show()
+                            Snackbar.make(binding.root, it.error.orEmpty(), Snackbar.LENGTH_LONG).show()
                         }
                     }
                 }

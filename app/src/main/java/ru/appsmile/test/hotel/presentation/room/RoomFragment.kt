@@ -57,7 +57,7 @@ class RoomFragment : Fragment() {
                     when (it) {
                         is Resource.Success -> {
                             binding.progressBar.isVisible = false
-                            binding.recyclerViewRooms.isVisible = it.data != null
+                            binding.recyclerViewRooms.isVisible = true
                             roomsAdapter.items = it.data
                         }
 
@@ -68,8 +68,7 @@ class RoomFragment : Fragment() {
 
                         is Resource.Error -> {
                             binding.progressBar.isVisible = false
-                            binding.recyclerViewRooms.isVisible = it.data != null
-                            roomsAdapter.items = it.data
+                            binding.recyclerViewRooms.isVisible = false
                         }
                     }
                 }

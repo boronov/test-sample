@@ -57,17 +57,16 @@ class HotelFragment : Fragment() {
         }
     }
 
-
     private fun setupObserver() {
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.hotel.collect {
                     when (it) {
                         is Resource.Success -> {
-                            binding.content.isVisible = it.data != null
+                            binding.content.isVisible = true
                             binding.progressBar.isVisible = false
                             binding.buttonNext.isVisible = true
-                            it.data?.let { hotel -> setupViews(hotel) }
+                            setupViews(it.data)
                         }
 
                         is Resource.Loading -> {
@@ -78,9 +77,8 @@ class HotelFragment : Fragment() {
 
                         is Resource.Error -> {
                             binding.progressBar.isVisible = false
-                            binding.buttonNext.isVisible = it.data != null
-                            binding.content.isVisible = it.data != null
-                            it.data?.let { hotel -> setupViews(hotel) }
+                            binding.buttonNext.isVisible = false
+                            binding.content.isVisible = false
 
                             Snackbar.make(binding.root, it.error.orEmpty(), Snackbar.LENGTH_LONG)
                                 .show()
@@ -101,7 +99,8 @@ class HotelFragment : Fragment() {
         binding.textViewHotelName.text = hotel.name
         binding.buttonAddress.text = hotel.address
 
-        binding.textViewMinimalPrice.text = getString(R.string.core_format_minimal_price, hotel.minimalPrice.toCurrencyFormat())
+        binding.textViewMinimalPrice.text =
+            getString(R.string.core_format_minimal_price, hotel.minimalPrice.toCurrencyFormat())
         binding.textViewPriceForIt.text = hotel.priceForIt
 
         peculiaritiesAdapter.items = hotel.aboutTheHotel.peculiarities

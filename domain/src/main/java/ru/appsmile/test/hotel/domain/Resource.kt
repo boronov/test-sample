@@ -1,10 +1,9 @@
 package ru.appsmile.test.hotel.domain
 
-sealed class Resource<T>(val data: T? = null, val error: String? = null) {
+sealed class Resource<T> {
+    class Success<T>(val data: T) : Resource<T>()
 
-    class Success<T>(data: T) : Resource<T>(data)
+    class Error<T>(val error: String? = null) : Resource<T>()
 
-    class Error<T>(error: String, data: T? = null) : Resource<T>(data, error)
-
-    class Loading<T>() : Resource<T>()
+    class Loading<T> : Resource<T>()
 }
